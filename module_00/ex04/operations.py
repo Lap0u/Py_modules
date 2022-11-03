@@ -2,9 +2,10 @@
 
 import sys
 
-if len(sys.argv) != 3:
+if len(sys.argv) == 1:
   sys.exit('Usage: operations.py <number> <number>')
-
+if len(sys.argv) != 3:
+	sys.exit('Expecting two arguments only')
 try:
   lhs = int(sys.argv[1])
   rhs = int(sys.argv[2])
