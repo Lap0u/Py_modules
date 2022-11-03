@@ -7,4 +7,4 @@ kata = {
 }
 
 for key,value in kata.items():
-  print(f'{key} was invented by {value}')
+  print(f'{key} was created by {value}')

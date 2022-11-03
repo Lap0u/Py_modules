@@ -2,4 +2,4 @@
 
 kata = "The right format"
 
-print('{:->41}'.format(kata))
+print('{:->42}'.format(kata), end="")

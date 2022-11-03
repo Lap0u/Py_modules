@@ -171,12 +171,65 @@ function test4() {
 
 	echo -e "${Purple}\nTesting argument amount${White}"
 	python operations.py S{NUM1_04}
+
+	cd ..
 }
-# test1
-# test2
-# test3
+
+function test5() {
+
+	cd ./ex05
+	echo -e "\n${Yellow}Testing excercise 05${White}"
+
+	ANS_05_00="The 3 numbers are: 19, 42, 21"
+	ANS_05_01="Python was created by Guido van Rossum
+Ruby was created by Yukihiro Matsumoto
+PHP was created by Rasmus Lerdorf"
+	ANS_05_02="09/25/2019 03:30"
+	ANS_05_02WC="17"
+	ANS_05_03="--------------------------The right format"
+	ANS_05_03WC="42"
+	ANS_05_04="module_00, ex_04 : 132.42, 1.00e+04, 1.23e+04"
+	ANS_05_CUT=",:"
+
+	#test kata 00
+	echo -e "${Purple}\nTesting kata00"
+	python kata00.py > answer.txt
+	compare "$ANS_05_00"
+
+	#test kata 01
+	echo -e "${Purple}\nTesting kata01"
+	python kata01.py > answer.txt
+	compare "$ANS_05_01"
+
+	#test kata 02
+	echo -e "${Purple}\nTesting kata02"
+	python kata02.py > answer.txt
+	compare "$ANS_05_02"
+	python kata02.py | wc -c > answer.txt
+	compare "$ANS_05_02WC"
+
+	#test kata 03
+	echo -e "${Purple}\nTesting kata03"
+	python kata03.py > answer.txt
+	compare "$ANS_05_03"
+	python kata03.py | wc -c > answer.txt
+	compare "$ANS_05_03WC"
+
+	#test kata 04
+	echo -e "${Purple}\nTesting kata04"
+	python kata04.py > answer.txt
+	compare "$ANS_05_04"
+	python3 kata04.py | cut -c 10,18 > answer.txt
+	compare "$ANS_05_CUT"
+
+	$RM
+	cd ..
+}
+test1
+test2
+test3
 test4
-# test5
+test5
 # test6
 # test7
 # test8
