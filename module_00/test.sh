@@ -93,3 +93,39 @@ python whois.py $NEG_EVEN_02 > answer.txt
 compare "$ANS_EVEN"
 
 $RM
+
+#test 03
+cd ../ex03
+echo -e "\n${Yellow}Testing excercise 03${White}"
+STR_03="Hello World!"
+STR2_03="Python 2.0, released 2000, introduced features like List comprehensions and a garbage collection system capable of collecting reference cycles."
+STR3_03="Python is an interpreted, high-level, general-purpose programming language. Created by Guido van Rossum and first released in 1991, Python's design philosophy emphasizes code readability with its notable use of significant whitespace."
+
+#test user_input
+python count.py
+echo -e "${Cyan}"
+
+#test error number
+echo -e "from count import text_analyzer" > temp
+echo -e "text_analyzer(42)" >> temp
+python < temp
+rm -rf temp
+
+#test_01
+echo -e "${Purple}\nTesting with: ${STR_03}${White}"
+python count.py "$STR_03"
+
+#test_02
+echo -e "${Purple}\nTesting with: ${STR2_03}${White}"
+python count.py "$STR2_03"
+
+#test_03
+echo -e "${Purple}\nTesting with: ${STR3_03}${White}"
+python count.py "$STR3_03"
+
+#test_docstring
+echo -e "${Purple}\nTesting docstring${White}"
+echo -e "from count import text_analyzer" > temp
+echo -e "print(text_analyzer.__doc__)" >> temp
+python < temp
+rm -rf temp
