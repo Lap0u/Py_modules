@@ -24,7 +24,7 @@ def printLoading(total, eta, elapsed, percent):
     equals = '=' * int(percent * 20 / 100)
   space = ' ' * (20 - len(equals))
   bar = '[' + equals + space + '>]'
-  print(f'ETA: {eta:.2f}s [{percent: >5}%]{bar} {total} | elapsed time {elapsed:.2f}s', end='\r')
+  print(f'ETA: {eta:.2f}s [{percent:.2f}%]{bar} {total} | elapsed time {elapsed:.2f}s', end='\r')
 
 def ft_progress(nums):
   for elem in nums:
@@ -32,10 +32,22 @@ def ft_progress(nums):
     elapsed = getElapsed()
     eta = getEta(nums, pos)
     total = getTotal(nums, pos)
-    percent = pos * 100 / len(nums)
+    percent = round(pos * 100 / len(nums), 2)
     printLoading(total, eta, elapsed, percent)
 
     yield elem
+
+
+# def test():
+# 	listy = range(3333)
+# 	ret = 0
+# 	for elem in ft_progress(listy):
+# 		ret += elem
+# 		time.sleep(0.005)
+# 	print()
+# 	print(ret)
+
+# secondary test
 
 def test():
   listy = range(1000)

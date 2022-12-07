@@ -52,7 +52,8 @@ def sos():
     else:
       print (f'{letter} is not supported by morse code')
       return
-  print(translated)
+	# print without last space
+  print(translated[:-1])
 
 if len(sys.argv) < 2:
   print('Usage: sos.py <string>')

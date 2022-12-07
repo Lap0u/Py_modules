@@ -12,7 +12,7 @@ def filterwords():
     # removes all punctuation
     nopunc = sys.argv[1].translate(str.maketrans('', '', string.punctuation))
     splitted_words = nopunc.split(' ')
-    filtered = filter(lambda word: len(word) > num, splitted_words)
+    filtered = [word for word in splitted_words if len(word) > num]
     print(list(filtered))
   except ValueError:
     print('This is not an integer')

@@ -225,13 +225,133 @@ PHP was created by Rasmus Lerdorf"
 	$RM
 	cd ..
 }
+
+function test6() {
+	cd ./ex06
+	echo -e "\n${Yellow}Testing excercise 06"
+
+	echo -e "${Purple}\nCookbook waiting for input\n${White}"
+	python recipe.py
+		
+	$RM
+	cd ..
+
+}
+
+function test7() {
+	cd ./ex07
+	STR1='Hello, my friend'
+	NUM1=3
+	ANS1="['Hello', 'friend']"
+	NUM2=10
+	ANS2="[]"
+	STR3='A robot must protect its own existence as long as such protection does not conflict with the First or Second Law'
+	NUM3=6
+	ANS3="['protect', 'existence', 'protection', 'conflict']"
+	STR4=Hello
+	NUM4=World
+	STR5=3
+	NUM5='Hello, my friend'
+
+	echo -e "\n${Yellow}Testing excercise 07"
+
+	echo -e "${Purple}\nTesting |${STR1}| with |${NUM1}| characters\n${White}"
+	python filterwords.py "$STR1" $NUM1 > answer.txt
+	compare "$ANS1"
+	
+	echo -e "${Purple}\nTesting |${STR1}| with |${NUM2}| characters\n${White}"
+	python filterwords.py "$STR1" $NUM2 > answer.txt
+	compare "$ANS2"
+		
+	echo -e "${Purple}\nTesting |${STR3}| with |${NUM3}| characters\n${White}"
+	python filterwords.py "$STR3" $NUM3 > answer.txt
+	compare "$ANS3"
+
+	echo -e "${Purple}\nTesting with 2 strings${White}"
+	python filterwords.py "$STR4" $NUM4
+
+	echo -e "${Purple}\nTesting with arguments in reverse order${White}"
+	python filterwords.py "$STR5" "$NUM5"
+
+	echo -e "${Purple}\nTesting with 3, 1 and 0 arguments${White}"
+	python filterwords.py "$STR5" "$STR5" "$STR5" 
+	python filterwords.py "$STR5" 
+	python filterwords.py 
+
+
+	$RM
+	cd ..
+}
+
+function test8() {
+	cd ./ex08
+	echo -e "\n${Yellow}Testing excercise 08"
+
+	echo -e "${Purple}\Morse code translator\n${White}"
+	python sos.py
+	STR1="SOS"
+	STR2="HELLO / WORLD"
+	STR3="HELLO WORLD"
+	STR4="96 BOULEVARD"
+	STR5="Bessiere"
+	ANS1="... --- ..."
+	ANS3=".... . .-.. .-.. --- / .-- --- .-. .-.. -.."
+	ANS4="----. -.... / -... --- ..- .-.. . ...- .- .-. -.. / -... . ... ... .. . .-. ."
+
+	echo -e "${Purple}\nTesting with |${STR1}|"
+	python sos.py "${STR1}" > answer.txt
+	compare "$ANS1"
+
+	echo -e "${Purple}\nTesting with |${STR2}|(error because of /)"
+	python sos.py "${STR2}" 
+
+	echo -e "${Purple}\nTesting with |${STR3}|"
+	python sos.py "${STR3}" > answer.txt
+	compare "$ANS3"
+
+
+	echo -e "${Purple}\nTesting with |${STR4} ${STR5}|(two strings)"
+	python sos.py "${STR4}" "${STR5}" > answer.txt
+	compare "$ANS4"
+
+	$RM
+	cd ..
+
+}
+
+function test9() {
+	cd ./ex09
+	echo -e "\n${Yellow}Testing excercise 09"
+
+	echo -e "${Purple}\nPlaying guess game\n${White}"
+	python guess.py
+	echo -e "${Purple}\nModify code to test special features\n${White}"
+	
+	$RM
+	cd ..
+
+}
+
+function test10() {
+	cd ./ex10
+	echo -e "\n${Yellow}Testing excercise 10"
+
+	echo -e "${Purple}\nLoading bar\n${White}"
+	python loading.py
+	echo -e "${Purple}\nModify code to test different loops\n${White}"
+	
+	$RM
+	cd ..
+
+}
+
 test1
 test2
 test3
 test4
 test5
-# test6
-# test7
-# test8
-# test9
-# test10
+test6
+test7
+test8
+test9
+test10

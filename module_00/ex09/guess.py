@@ -31,6 +31,8 @@ def guess():
   try:
     while 1:
       if answer == -1:
+				# test special feature
+        # answer = 42
         answer = generate()
       userInput = input(ask)
       tries += 1
