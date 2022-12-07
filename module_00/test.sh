@@ -63,14 +63,14 @@ function test2() {
 	STR="Hello"
 	ODD_02="13"
 	EVEN_02="20"
-	ZERO_02="0"
+	ZERO_02="000"
 	NEG_ODD_02="-13"
 	NEG_EVEN_02="-20"
 
 	#test empty
 	python whois.py
 
-	#test two many args
+	#test too many args
 	python whois.py $ODD_02 $EVEN_02
 
 	#test string
@@ -164,13 +164,14 @@ function test4() {
 	python operations.py ${NUM1_04} ${NUMZ_04}
 
 	echo -e "${Purple}\nTesting with a string${White}"
-	python operations.py ${STR} S{NUM1_04}
+	python operations.py ${STR} ${NUM1_04}
+	python operations.py ${NUM1_04} ${STR}
 
 	echo -e "${Purple}\nTesting argument amount${White}"
-	python operations.py ${STR} S{NUM1_04} ${STR}
+	python operations.py ${STR} ${NUM1_04} ${STR}
 
 	echo -e "${Purple}\nTesting argument amount${White}"
-	python operations.py S{NUM1_04}
+	python operations.py ${NUM1_04}
 
 	cd ..
 }

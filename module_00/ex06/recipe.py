@@ -99,7 +99,7 @@ def useCookbook():
 	except ValueError:
 		print("Not a number")
 	except EOFError:
-		print("Pas comme ca Zinedine")
+		print("Goodbye")
 
 # main
 useCookbook()

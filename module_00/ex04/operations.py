@@ -10,7 +10,7 @@ try:
   lhs = int(sys.argv[1])
   rhs = int(sys.argv[2])
   print(f'Sum: {lhs + rhs}')
-  print(f'Difference: {lhs + rhs}')
+  print(f'Difference: {lhs - rhs}')
   print(f'Product: {lhs * rhs}')
   if (rhs == 0):
     print('ERROR (division by zero)')
