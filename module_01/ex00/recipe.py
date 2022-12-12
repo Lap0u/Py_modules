@@ -1,10 +1,20 @@
-# recipe_type starter", "lunch" or "dessert"
-# https://www.w3schools.com/python/python_classes.asp
-
 class Recipe:
+	# str method, find a recipe 
+	def __str__(self):
+		"""Return the string to print with the recipe info"""
+		txt = f'The {self.name} recipe is best if you have at least level {self.cooking_lvl} in cooking, it takes \
+around {self.cooking_time} minutes to prepare \
+and requires {self.ingredients}. It is a {self.recipe_type}.'
+
+		if (self.description != ""):
+			txt += f'\nHere is a short description: {self.description}'
+		return txt
+
+	def __repr__(self):
+		return self.name
 	# constructor
 	def __init__(self, name, cooking_lvl, cooking_time, ingredients, recipe_type, description=""):
-		recipe_list = ["lunch", "dessert"]
+		recipe_list = ["lunch", "starter", "dessert"]
 		
 		# str name 
 		if not (isinstance(name, str)):
@@ -35,12 +45,3 @@ class Recipe:
 		self.ingredients = ingredients
 		self.recipe_type = recipe_type
 		self.description = description
-
-def test():
-	try:
-		me = Recipe("12",5,-0,"12","lunch")
-	except ValueError as e:
-		print(e)
-
-
-test()
